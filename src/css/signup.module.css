@@ -1,0 +1,20 @@
+.p_text {
+  width: 100px;
+  display: inline-block;
+}
+.input {
+  font-size: 16px;
+  padding: 5px 10px;
+}
+.input_wrap {
+  margin-bottom: 10px;
+}
+.button{
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.wrap {
+  min-height: 100vh;
+  background: #1c1c1c;
+}
