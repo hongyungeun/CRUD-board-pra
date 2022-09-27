@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import MainPage from './pages/MainPage';
 import SignUpPage from './pages/SignUpPage';
 import BoardPage from './pages/BoardPage';
+import MyPage from './pages/MyPage';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
           <Route path='/' element={<Login/>} />
           <Route path='/main' element={<MainPage/>} />
           <Route path='/sign-up' element={<SignUpPage/>} />
-          <Route path='/board-page' element={<BoardPage />}/>
+          <Route path='/board-page/:id' element={<BoardPage />}/>
+          <Route path='/mypage/:id' element={<MyPage />} />
         </Routes>
       
     </div>

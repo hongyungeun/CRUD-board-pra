@@ -1,12 +1,14 @@
 import React, { useState,useReducer, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import style from '../css/signup.module.css'
 import { action } from '../redux/actions/action'
 import {AiFillMinusCircle,AiFillDownCircle} from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom'
 function SignUpcontainer() {
   
   let dispatch = useDispatch()
-  
+  let navigate = useNavigate()
+
   const [low1,setLow] = useState(false);
   const [upper1,setUpper] = useState(false);
   const [number1,setNumber] = useState(false);
@@ -17,6 +19,8 @@ function SignUpcontainer() {
   const [id,setId] = useState('')
   const [password,setPassword] = useState('')
   const [name,setName] = useState('')
+  
+  const signup =useSelector((state)=>state.signup)
   
   function idChange(e){
     setId(e.target.value)
@@ -83,6 +87,13 @@ function SignUpcontainer() {
       setTotal(false)
     }
   },[total])
+  useEffect(()=>{
+    if(signup.signup){
+      navigate('/main')
+    }else {
+
+    }
+  },[signup])
   return (
     <div className={style.wrap}>
       <div className='inner_wrap form'>

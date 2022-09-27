@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import BoardContainer from '../containers/BoardContainer'
 
 function MainPage() {
   const [token,setToken]=useState()
@@ -7,11 +8,11 @@ function MainPage() {
 
   },[])
   return (
-    <>
-    <div>
-      
+    
+    <div className='board_page_wrap'>
+      <BoardContainer />  
     </div>
-    </>
+    
    
   )
 }

@@ -216,3 +216,42 @@ h2
 .pass_check_wrap p.on {
   color: white;
 }
+.board_wrap {
+	min-width: 800px;
+	width: 50%;
+	border: 1px solid #000;
+}
+.board_title_wrap {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+.board_list_wrap {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.board_title_wrap p:nth-child(1){
+	width: 100px;
+}
+.board_title_wrap p:nth-child(2){
+	width: 50%;
+}
+.board_title_wrap p:nth-child(3){
+	width: 200px;
+}
+.board_list_wrap p:nth-child(1){
+	width: 100px;
+}
+.board_list_wrap p:nth-child(2){
+	width: 50%;
+}
+.board_list_wrap p:nth-child(3){
+	width: 200px;
+}
+.board_page_wrap {
+	min-height: 100vh;
+	background: #23242a;
+}

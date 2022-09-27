@@ -1,10 +1,10 @@
 import React from 'react'
-import BoardContainer from '../containers/BoardContainer'
+import BoardList from '../components/BoardList'
 
 function BoardPage() {
   return (
     <div>
-      <BoardContainer/>
+      <BoardList />
     </div>
   )
 }
