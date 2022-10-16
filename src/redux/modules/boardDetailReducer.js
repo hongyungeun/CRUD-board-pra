@@ -1,7 +1,7 @@
 let initialState={
   id:'',
   token:'',
-  user:'',
+
   logincheck:'',
   loading:true
 }
@@ -12,9 +12,10 @@ function boardDetailReducer(state=initialState,action){
     case 'BOARD_DETAIL':
       return{
         ...state,
-        id:payload,
-        token:payload,
-        user:payload,
+        id:payload.id,
+        token:payload.token,
+        
+        logincheck:payload.logincheck.data,
         loading:false
       }
       break;

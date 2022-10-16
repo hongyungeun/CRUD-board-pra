@@ -93,21 +93,20 @@ function boardlist(){
   }
 }
 
-function board_detail(id,token,user){
+function boardDetail(id,token,user){
   return async(dispatch)=>{
     try{
       console.log(id,token,user)
-      let loginCheck = await api.get('account/login-check',{headers:{
+      let check = await api.get('account/login-check',{headers:{
         Authorization:`Bearer ${token}`,
       }})
-      console.log(loginCheck)
+      console.log(check)
       dispatch({
         type:'BOARD_DETAIL',
         payload:{
           'id':id,
           'token':token,
-          'user':user,
-          'logincheck':loginCheck.data,
+          'logincheck':check,
           'loding':false
         }
       })
@@ -117,18 +116,75 @@ function board_detail(id,token,user){
   }
 }
 
-function board_detal_page(id){
+function boardDetailPage(id){
   return async(dispatch)=>{
     try {
-      console.log(id)
+      
       let detail = await api.get(`/board/${id}`)
       console.log(detail)
+      dispatch({
+        type:'BOARD_DETAIL_PAGE',
+        payload:{
+          'title':detail.data.title,
+          'content':detail.data.content,
+          'writer':detail.data.writer,
+          'view':detail.data.view,
+          'createdDate':detail.data.createdDate,
+          'loading':false
+        }
+      })
     } catch{
-      
+      console.log('boardDetailPage error')
     }
   }
 }
 
+  function writeChange (token,title,content,id){
+    return async(dispatch)=>{
+      console.log(token)
+      try{
+        let listWriteChange = await api.patch(`/board/${id}`,{
+          'content': `${content}`
+          ,'title': `${title}`
+        },
+        {
+          headers:{
+          Authorization:`Bearer ${token}`,
+          },
+          
+        },
+        
+        )
+        console.log(listWriteChange)
+        
+      }catch{
+        console.log('writeChange error')
+      }
+    }
+  }
+  function write (token,){
+    return async(dispatch)=>{
+      try{
+        let listWrite = await api.post(`/board`,{headers:{
+          Authorization:`Bearer ${token}`,
+        }})
+        console.log(listWrite)
+        
+      }catch{
+        console.log('write error')
+      }
+    }
+  }
+  function del(id,token){
+    return async(dispatch)=>{
+      try {
+        let del = await api.delete(`/board/${id}`,{headers:{Authorization:`Bearer ${token}`}})
+        console.log(del)
+      } catch {
+        console.log('del error')
+      }
+    }
+  } 
   export const action = {
-    login,realLogin,signUp,boardlist,board_detail,board_detal_page
+    login,realLogin,signUp,boardlist,boardDetail,boardDetailPage,write,writeChange,del
   }

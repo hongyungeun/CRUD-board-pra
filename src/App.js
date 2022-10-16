@@ -5,6 +5,7 @@ import MainPage from './pages/MainPage';
 import SignUpPage from './pages/SignUpPage';
 import BoardPage from './pages/BoardPage';
 import MyPage from './pages/MyPage';
+import BoardChangePage from './pages/BoardChangePage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/sign-up' element={<SignUpPage/>} />
           <Route path='/board-page/:id' element={<BoardPage />}/>
           <Route path='/mypage/:id' element={<MyPage />} />
+          <Route path='/board-page/:id/change' element={<BoardChangePage />} />
         </Routes>
       
     </div>

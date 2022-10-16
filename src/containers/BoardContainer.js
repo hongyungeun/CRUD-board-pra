@@ -5,7 +5,7 @@ import {action} from '../redux/actions/action'
 function BoardContainer() {
   let dispatch = useDispatch()
   let navigate = useNavigate()
-  let token =  window.localStorage.getItem('token')
+  // let token =  window.localStorage.getItem('token')
   const boardlist = useSelector((state)=>state.reducer)
   
   useEffect(()=>{
@@ -16,7 +16,7 @@ function BoardContainer() {
   console.log(boardlist.mainlist)
   
   const listClick = (item)=>{
-    dispatch(action.board_detail(item.id,token,item.writer))
+    // dispatch(action.boardDetail(item.id,token,item.writer))
     navigate(`/board-page/${item.id}`)
   }
 
